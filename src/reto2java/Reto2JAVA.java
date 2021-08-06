@@ -40,6 +40,7 @@ public class Reto2JAVA {
         listaEstudiantes = new Estudiante[numEstudiantes];
         
         for(int i=0;i<numEstudiantes;i++){
+            Double[] notas = new Double[3];
             
             System.out.print("Nombre: ");
             String nombre = sc.nextLine();
@@ -51,15 +52,16 @@ public class Reto2JAVA {
             int estrato = sc.nextInt();
             
             System.out.print("Nota 1: ");
-            int nota1 = sc.nextInt();
+            notas[0] = sc.nextDouble();
             
             System.out.print("Nota 2: ");
-            int nota2 = sc.nextInt();
+            notas[1] = sc.nextDouble();
             
             System.out.print("Nota 3: ");
-            int nota3 = sc.nextInt();
+            notas[2] = sc.nextDouble();
             
             estudiante = new Estudiante(nombre,edad,estrato);
+            estudiante.setNotas(notas);
             
             listaEstudiantes[i] = estudiante;
         }
