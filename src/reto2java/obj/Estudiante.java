@@ -11,10 +11,10 @@ package reto2java.obj;
  */
 public class Estudiante {
     public int[] notas;
-    public String nombre,edad;
-    public int promedio,estrato;
+    public String nombre;
+    public int promedio,edad,estrato;
 
-    public Estudiante(String nombre, String edad, int estrato) {
+    public Estudiante(String nombre, int edad, int estrato) {
         this.nombre = nombre;
         this.edad = edad;
         this.estrato = estrato;
@@ -38,11 +38,11 @@ public class Estudiante {
         this.nombre = nombre;
     }
 
-    public String getEdad() {
+    public int getEdad() {
         return edad;
     }
 
-    public void setEdad(String edad) {
+    public void setEdad(int edad) {
         this.edad = edad;
     }
 
