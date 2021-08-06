@@ -10,10 +10,11 @@ package reto2java.obj;
  * @author juanpchica
  */
 public final class Estudiante {
-    public Double[] notas;
+    public double[] notas;
     public String nombre;
     public int edad,estrato,valorDescontado;
     public boolean tieneDescuento,yaTieneDescuento = false;
+    public double promedio;
     
 
     public Estudiante(String nombre, int edad, int estrato) {
@@ -21,9 +22,14 @@ public final class Estudiante {
         this.edad = edad;
         this.estrato = estrato;
         
-        //Obtengo promedio y descuentos
-        this.getPromedio();
-        this.validarTieneDescuento();
+    }
+
+    public double getPromedio() {
+        return promedio;
+    }
+
+    public void setPromedio(double promedio) {
+        this.promedio = promedio;
     }
 
     public int getValorDescontado() {
@@ -42,11 +48,11 @@ public final class Estudiante {
         this.tieneDescuento = tieneDescuento;
     }
     
-    public Double[] getNotas() {
+    public double[] getNotas() {
         return notas;
     }
 
-    public void setNotas(Double[] notas) {
+    public void setNotas(double[] notas) {
         this.notas = notas;
     }
 
@@ -74,14 +80,14 @@ public final class Estudiante {
         this.estrato = estrato;
     }
     
-    public int getPromedio() {
-        int promedio = 0;
-        Double[] notasValor = new Double[]{0.3,0.3,0.4};
+    public void calcularPromedio() {
+        double promedio = 0.0;
+        double[] notasValor = new double[]{0.3,0.3,0.4};
         for(int i = 0;i<3;i++){
             promedio += this.notas[i]*notasValor[i];
         }
         
-        return promedio;
+        this.setPromedio(Math.round(promedio* 100.0)/100.0);
     }
     
     public int calcularValorDescontado(int porcentaje){

@@ -40,7 +40,7 @@ public class Reto2JAVA {
         listaEstudiantes = new Estudiante[numEstudiantes];
         
         for(int i=0;i<numEstudiantes;i++){
-            Double[] notas = new Double[3];
+            double[] notas = new double[3];
             
             System.out.print("Nombre: ");
             String nombre = sc.nextLine();
@@ -62,6 +62,10 @@ public class Reto2JAVA {
             
             estudiante = new Estudiante(nombre,edad,estrato);
             estudiante.setNotas(notas);
+            
+            //Obtengo promedio y descuentos
+            estudiante.calcularPromedio();
+            estudiante.validarTieneDescuento();
             
             listaEstudiantes[i] = estudiante;
         }
