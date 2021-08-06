@@ -12,7 +12,7 @@ package reto2java.obj;
 public class Estudiante {
     public int[] notas;
     public String nombre;
-    public int promedio,edad,estrato;
+    public int edad,estrato;
 
     public Estudiante(String nombre, int edad, int estrato) {
         this.nombre = nombre;
@@ -20,8 +20,6 @@ public class Estudiante {
         this.estrato = estrato;
     }
     
-    
-
     public int[] getNotas() {
         return notas;
     }
@@ -47,11 +45,13 @@ public class Estudiante {
     }
 
     public int getPromedio() {
+        int promedio = 0;
+        Double[] notasValor = new Double[]{0.3,0.3,0.4};
+        for(int i = 0;i<3;i++){
+            promedio += this.notas[i]*notasValor[i];
+        }
+        
         return promedio;
-    }
-
-    public void setPromedio(int promedio) {
-        this.promedio = promedio;
     }
 
     public int getEstrato() {
@@ -61,7 +61,5 @@ public class Estudiante {
     public void setEstrato(int estrato) {
         this.estrato = estrato;
     }
-    
-    
     
 }
