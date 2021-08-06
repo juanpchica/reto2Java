@@ -44,7 +44,7 @@ public class Reto2JAVA {
             
             System.out.print("Nombre: ");
             String nombre = sc.nextLine();
-            sc.nextLine();
+            nombre = sc.nextLine();
             System.out.print("Edad: ");
             int edad = sc.nextInt();
             

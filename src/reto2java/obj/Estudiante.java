@@ -12,9 +12,9 @@ package reto2java.obj;
 public final class Estudiante {
     public double[] notas;
     public String nombre;
-    public int edad,estrato,valorDescontado;
+    public int edad,estrato;
     public boolean tieneDescuento,yaTieneDescuento = false;
-    public double promedio;
+    public double promedio,valorDescontado;
     
 
     public Estudiante(String nombre, int edad, int estrato) {
@@ -32,11 +32,11 @@ public final class Estudiante {
         this.promedio = promedio;
     }
 
-    public int getValorDescontado() {
+    public double getValorDescontado() {
         return valorDescontado;
     }
 
-    public void setValorDescontado(int valorDescontado) {
+    public void setValorDescontado(double valorDescontado) {
         this.valorDescontado = valorDescontado;
     }
 
@@ -90,15 +90,17 @@ public final class Estudiante {
         this.setPromedio(Math.round(promedio* 100.0)/100.0);
     }
     
-    public int calcularValorDescontado(int porcentaje){
+    public double calcularValorDescontado(double porcentaje){
         if(porcentaje == 0){
             this.tieneDescuento = false;
             return 0;
         }else{
+            double valorPorcentaje = porcentaje/100.0;
+            double valorMatricula = (this.yaTieneDescuento)?(630000-this.getValorDescontado()):630000;
             this.tieneDescuento = true;
             this.yaTieneDescuento = true;
-            int valorMatricula = (this.yaTieneDescuento)?this.getValorDescontado():630000;
-            return valorMatricula * (porcentaje/100);
+            
+            return (valorMatricula * valorPorcentaje);
         }
     }
     
