@@ -20,11 +20,8 @@ public class Reto2JAVA {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        
         colectarEstudiantes();
-        
-        
+        mostrarInfo();
     }
     
     public static void colectarEstudiantes(){
@@ -69,6 +66,19 @@ public class Reto2JAVA {
             
             listaEstudiantes[i] = estudiante;
         }
+        
+    }
+    
+    public static void mostrarInfo(){
+        double totalDescuento = 0.0;
+        for(int i = 0;i < listaEstudiantes.length;i++){
+            System.out.println("Estudiante # "+ i);
+            System.out.println(listaEstudiantes[i].nombre);
+            System.out.println("Valor Descontado: $"+listaEstudiantes[i].valorDescontado+"\n");
+            
+            totalDescuento += listaEstudiantes[i].valorDescontado;
+        }
+        System.out.println("Total Descontado: $"+totalDescuento);
         
     }
     
